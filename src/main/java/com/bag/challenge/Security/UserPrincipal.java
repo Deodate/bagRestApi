@@ -37,21 +37,21 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true; // Modify as needed based on your application's logic
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true; // Modify as needed based on your application's logic
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true; // Modify as needed based on your application's logic
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return true; // Modify as needed based on your application's logic
+        return true;
     }
 }
