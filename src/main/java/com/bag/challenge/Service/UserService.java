@@ -6,6 +6,8 @@ import com.bag.challenge.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -15,7 +17,31 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
+
+    public User updateUser(Long userId, User newUser) {
+        return userRepository.findById(userId)
+                .map(user -> {
+                    user.setUsername(newUser.getUsername());
+                    user.setEmail(newUser.getEmail());
+                    // Update other fields as needed
+                    return userRepository.save(user);
+                })
+                .orElse(null);
+    }
+
+    public boolean deleteUser(Long userId) {
+        try {
+            userRepository.deleteById(userId);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
