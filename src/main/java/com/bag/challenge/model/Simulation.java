@@ -1,21 +1,21 @@
-// src/main/java/com/bag/challenge/model/Simulation.java
 package com.bag.challenge.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Simulation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String description;
     private Long userId;
 
-    // Getters and Setters
+    // Getters and Setters for all fields
     public Long getId() {
         return id;
     }
